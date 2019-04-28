@@ -1,8 +1,8 @@
-
 /*jslint node: true, nomen: true*/
 "use strict";
 
 var express = require('express');
+var cors = require('cors');
 var path = require('path');
 var morgan = require('morgan');
 var winston = require('winston');
@@ -16,7 +16,7 @@ var app = express();
 
 // view engine setup (not included)
 
-
+app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
 	extended: false
@@ -146,7 +146,8 @@ if (app.get('env') === 'development') {
 		res.status(err.status || 500);
 		res.json({
 			message: err.message,
-			error: err
+			error: err,
+			stack: err.stack
 		});
 	});
 }
