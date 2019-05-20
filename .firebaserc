@@ -1,0 +1,6 @@
+{
+  "projects": {
+    "default": "axy-api",
+    "prod": "axy-api"
+  }
+}
